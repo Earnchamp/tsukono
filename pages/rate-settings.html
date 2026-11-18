@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><script src="../auth.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GoldPay · USDT Rate Settings</title>
+<style>
+:root{--n:#17243b;--g:#e8b923;--bg:#f4f6fa;--m:#788397;--l:#e7eaf0;--ok:#16804a}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px system-ui,Arial;color:var(--n)}header{background:var(--n);color:white;padding:17px 22px;display:flex;justify-content:space-between}.brand{font-weight:900}.brand b{color:var(--g)}.layout{display:flex;min-height:calc(100vh - 55px)}aside{width:225px;background:#fff;padding:18px 12px;border-right:1px solid var(--l)}aside a{display:block;padding:11px;border-radius:9px;text-decoration:none;color:#58657a;margin:3px 0}aside a.active{background:#fff5d6;color:#705300;font-weight:800}main{padding:25px;flex:1;max-width:1200px}h1{margin:0 0 5px}.sub{color:var(--m);margin:0 0 18px}.panel,.ratecard{background:white;border:1px solid var(--l);border-radius:15px;padding:18px;margin-bottom:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;color:var(--m);font-size:12px;margin-bottom:6px}.field input,.field select{width:100%;padding:11px;border:1px solid var(--l);border-radius:9px}.ratehead{display:flex;justify-content:space-between;align-items:center}.rate{font-size:28px;font-weight:850;margin:10px 0}.btn{background:var(--g);border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}.ghost{background:#edf0f5}.note{background:#fff8e6;padding:12px;border-radius:10px;color:#806316;font-size:12px;line-height:1.5}.history{color:var(--m);font-size:12px;margin-top:10px}@media(max-width:850px){aside{display:none}main{padding:17px 12px}.grid{grid-template-columns:1fr}}
+</style><style>
+/* GoldPay admin visual theme — inspired by the supplied Quack Pay reference */
+:root{--navy:#111a36;--gold:#1684d8;--bg:#eef1f6;--muted:#78849a;--line:#dfe4ed;--green:#16834d;--red:#d9535b;--amber:#a87908;--blue:#087bd1}
+html{background:var(--bg)} body{background:var(--bg)!important;color:#26334d!important;font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif!important}
+header,.top{background:#111a36!important;color:#f5f7fc!important;border:0!important;box-shadow:0 2px 10px rgba(9,20,48,.12)}
+.top{height:70px}.top strong{color:#fff}.top .muted{color:#b9c5dc!important}
+.side,aside{background:#111a36!important;color:#dce5f5!important;border:0!important;box-shadow:2px 0 12px rgba(9,20,48,.08)}
+.logo{color:#fff!important}.logo span,.brand b{color:#62b8ff!important}
+.navbtn,aside a{color:#c3cde0!important;border-radius:3px!important;background:transparent!important;transition:background .15s,color .15s}
+.navbtn.active,.navbtn:hover,aside a.active,aside a:hover{background:#087bd1!important;color:#fff!important}
+.navbtn{border-left:3px solid transparent!important}.navbtn.active{border-left-color:#71c5ff!important}
+.content,main{background:var(--bg)!important}.heading h1,h1{color:#25334d!important}
+.panel,.metric,.stat{background:#fff!important;border:1px solid #e0e5ed!important;border-radius:5px!important;box-shadow:0 2px 8px rgba(22,40,75,.035)}
+.panel h2{color:#273650}.metric b,.stat strong{color:#1e2d49}
+th{background:#f3f5f9!important;color:#748199!important}td,th{border-color:#e5e9f0!important}
+.btn,button:not(.navbtn):not(.secondary):not(.ghost){background:#087bd1!important;color:#fff!important;border-radius:3px!important}
+.btn.ghost,.secondary{background:#f7f9fc!important;color:#34445f!important;border:1px solid #dce3ed!important;border-radius:3px!important}
+.status,.pill{border-radius:3px!important}
+.toolbar input,.toolbar select,input,select{border-color:#d8dfeb!important;border-radius:3px!important}
+.notice{border-radius:3px!important}
+a{color:#087bd1}
+@media(max-width:900px){.side{box-shadow:none}aside{background:#111a36!important}}
+
+</style></head><body><header><div class="brand">GOLD<b>PAY</b> · ADMIN</div><div>Rate management</div></header><div class="layout"><aside>
+<a href="../index.html">Dashboard</a><a href="deposit-requests.html">API Deposit Requests</a><a href="buying-records.html">User Buying Records</a><a href="receipt-review.html">Receipt Review Alerts</a><a href="usdt-deposits.html">USDT Deposits</a><a class="active" href="rate-settings.html">USDT Rate Settings</a><a href="announcements.html">Notifications & Offers</a><a href="admin-roles.html">Admin Roles</a><a href="channels.html">Payment Channels</a>
+</aside><main><h1>USDT rate settings</h1><p class="sub">Configure the displayed buy and sell rates for each supported network/asset.</p>
+<div class="note">Demo values only. Production rate changes should be audited, permission-checked and versioned. Define whether rates are INR per USDT, include fees/spread, and how long a quoted rate remains locked for an order.</div>
+<div class="grid" style="margin-top:15px">
+<section class="ratecard"><div class="ratehead"><b>USDT · BNB Smart Chain (BEP-20)</b><span> <b style="color:#16804a">Active</b></span></div><div class="rate">₹<span id="bscBuyShow">92.50</span> <small style="font-size:12px;color:#788397">Buy rate / USDT</small></div><div class="grid"><div class="field"><label>Buy rate (INR per USDT)</label><input id="bscBuy" type="number" step="0.01" value="92.50"></div><div class="field"><label>Sell rate (INR per USDT)</label><input id="bscSell" type="number" step="0.01" value="91.80"></div><div class="field"><label>Minimum deposit (USDT)</label><input id="bscMin" type="number" step="0.01" value="5"></div><div class="field"><label>Minimum confirmations</label><input id="bscConf" type="number" min="1" value="15"></div></div><p class="history">Last updated: demo · Rate version BSC-001</p></section>
+<section class="ratecard"><div class="ratehead"><b>USDT · Ethereum (ERC-20)</b><span><b style="color:#16804a">Active</b></span></div><div class="rate">₹<span id="ethBuyShow">93.10</span> <small style="font-size:12px;color:#788397">Buy rate / USDT</small></div><div class="grid"><div class="field"><label>Buy rate (INR per USDT)</label><input id="ethBuy" type="number" step="0.01" value="93.10"></div><div class="field"><label>Sell rate (INR per USDT)</label><input id="ethSell" type="number" step="0.01" value="92.20"></div><div class="field"><label>Minimum deposit (USDT)</label><input id="ethMin" type="number" step="0.01" value="10"></div><div class="field"><label>Minimum confirmations</label><input id="ethConf" type="number" min="1" value="12"></div></div><p class="history">Last updated: demo · Rate version ETH-001</p></section>
+</div>
+<section class="panel"><h3 style="margin-top:0">Rate application</h3><div class="grid"><div class="field"><label>Rate effective from</label><input id="effective" type="datetime-local" value="2026-11-18T12:00"></div><div class="field"><label>Quote validity (minutes)</label><input id="validity" type="number" value="5" min="1"></div></div><p class="history">Changes shown here are stored in this browser demo only.</p><button class="btn" onclick="saveRates()">Save rate settings</button> <button class="btn ghost" onclick="location.reload()">Reset demo</button><p id="msg" class="history"></p></section>
+</main></div><script>
+function saveRates(){for(const [id,show] of [['bscBuy','bscBuyShow'],['ethBuy','ethBuyShow']])document.getElementById(show).textContent=Number(document.getElementById(id).value).toFixed(2);document.getElementById('msg').textContent='Demo settings saved locally for this preview. Production must call a protected API and write an audit record.'}
+</script></body></html>

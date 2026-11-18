@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><script src="../auth.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GoldPay · Admin Roles & Permissions</title>
+<style>
+:root{--n:#17243b;--g:#e8b923;--bg:#f4f6fa;--m:#788397;--l:#e7eaf0}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px system-ui,Arial;color:var(--n)}header{background:var(--n);color:white;padding:17px 22px}.brand{font-weight:900}.brand b{color:var(--g)}.layout{display:flex;min-height:calc(100vh - 55px)}aside{width:225px;background:#fff;padding:18px 12px;border-right:1px solid var(--l)}aside a{display:block;padding:11px;border-radius:9px;text-decoration:none;color:#58657a;margin:3px 0}aside a.active{background:#fff5d6;color:#705300;font-weight:800}main{padding:25px;flex:1;min-width:0}h1{margin:0 0 5px}.sub{color:var(--m);margin:0 0 18px}.panel{background:#fff;border:1px solid var(--l);border-radius:15px;padding:18px;margin-bottom:15px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.field{flex:1;min-width:180px}.field label{display:block;color:var(--m);font-size:12px;margin-bottom:6px}.field input,.field select{width:100%;padding:10px;border:1px solid var(--l);border-radius:9px}.btn{background:var(--g);border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}.notice{background:#fff5dc;color:#7e5e0c;border-radius:10px;padding:12px;font-size:12px;line-height:1.5;margin-bottom:15px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:12px;border-bottom:1px solid var(--l);text-align:left;font-size:12px}th{background:#fafbfd;color:var(--m)}td.center,th.center{text-align:center}.role{font-weight:800}.muted{color:var(--m);font-size:11px}.perm{width:17px;height:17px;accent-color:#b58a12}.locked{opacity:.6}.pill{background:#e9f5ed;color:#16804a;border-radius:20px;padding:5px 8px;font-size:10px;font-weight:800}
+@media(max-width:850px){aside{display:none}main{padding:17px 12px}}
+</style><style>
+/* GoldPay admin visual theme — inspired by the supplied Quack Pay reference */
+:root{--navy:#111a36;--gold:#1684d8;--bg:#eef1f6;--muted:#78849a;--line:#dfe4ed;--green:#16834d;--red:#d9535b;--amber:#a87908;--blue:#087bd1}
+html{background:var(--bg)} body{background:var(--bg)!important;color:#26334d!important;font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif!important}
+header,.top{background:#111a36!important;color:#f5f7fc!important;border:0!important;box-shadow:0 2px 10px rgba(9,20,48,.12)}
+.top{height:70px}.top strong{color:#fff}.top .muted{color:#b9c5dc!important}
+.side,aside{background:#111a36!important;color:#dce5f5!important;border:0!important;box-shadow:2px 0 12px rgba(9,20,48,.08)}
+.logo{color:#fff!important}.logo span,.brand b{color:#62b8ff!important}
+.navbtn,aside a{color:#c3cde0!important;border-radius:3px!important;background:transparent!important;transition:background .15s,color .15s}
+.navbtn.active,.navbtn:hover,aside a.active,aside a:hover{background:#087bd1!important;color:#fff!important}
+.navbtn{border-left:3px solid transparent!important}.navbtn.active{border-left-color:#71c5ff!important}
+.content,main{background:var(--bg)!important}.heading h1,h1{color:#25334d!important}
+.panel,.metric,.stat{background:#fff!important;border:1px solid #e0e5ed!important;border-radius:5px!important;box-shadow:0 2px 8px rgba(22,40,75,.035)}
+.panel h2{color:#273650}.metric b,.stat strong{color:#1e2d49}
+th{background:#f3f5f9!important;color:#748199!important}td,th{border-color:#e5e9f0!important}
+.btn,button:not(.navbtn):not(.secondary):not(.ghost){background:#087bd1!important;color:#fff!important;border-radius:3px!important}
+.btn.ghost,.secondary{background:#f7f9fc!important;color:#34445f!important;border:1px solid #dce3ed!important;border-radius:3px!important}
+.status,.pill{border-radius:3px!important}
+.toolbar input,.toolbar select,input,select{border-color:#d8dfeb!important;border-radius:3px!important}
+.notice{border-radius:3px!important}
+a{color:#087bd1}
+@media(max-width:900px){.side{box-shadow:none}aside{background:#111a36!important}}
+
+</style></head><body><header><div class="brand">GOLD<b>PAY</b> · ADMIN</div></header><div class="layout"><aside>
+<a href="../index.html">Dashboard</a><a href="deposit-requests.html">API Deposit Requests</a><a href="buying-records.html">User Buying Records</a><a href="receipt-review.html">Receipt Review Alerts</a><a href="usdt-deposits.html">USDT Deposits</a><a href="rate-settings.html">USDT Rate Settings</a><a href="announcements.html">Notifications & Offers</a><a class="active" href="admin-roles.html">Admin Roles</a><a href="channels.html">Payment Channels</a>
+</aside><main><h1>Admin roles & permissions</h1><p class="sub">Create staff accounts and assign granular access by role.</p>
+<div class="notice"><b>Permission governance:</b> Only an Owner or Head can create staff roles or change permission checkboxes. Manager, Sub Admin, Partner and Agent cannot grant or escalate permissions. In production enforce this on the server for every permission update—not just by hiding controls in this page.</div>
+<section class="panel"><h3 style="margin-top:0">Add admin / staff account</h3><div class="row"><div class="field"><label>Full name</label><input id="name" placeholder="Staff member name"></div><div class="field"><label>Email / login ID</label><input id="email" placeholder="staff@example.com"></div><div class="field"><label>Role</label><select id="role"><option>Manager</option><option>Sub Admin</option><option>Partner</option><option>Agent</option><option>Head</option><option>Owner</option></select></div><button class="btn" onclick="addAdmin()">Create demo admin</button></div><p class="muted" id="msg">Demo only: account creation is not connected to authentication.</p></section>
+<section class="panel"><div class="row" style="justify-content:space-between"><h3 style="margin:0">Role permission matrix</h3><span class="pill" id="authority">Editing as Owner</span></div><div class="row" style="margin:14px 0"><div class="field"><label>Current administrator (demo authority)</label><select id="actor" onchange="authorityChanged()"><option>Owner</option><option>Head</option><option>Manager</option><option>Sub Admin</option><option>Partner</option><option>Agent</option></select></div><div class="field"><label>Editing role</label><select id="target" onchange="renderMatrix()"><option>Manager</option><option>Sub Admin</option><option>Partner</option><option>Agent</option><option>Head</option><option>Owner</option></select></div><button class="btn" onclick="saveMatrix()">Save permissions</button></div>
+<div class="tablewrap"><table><thead><tr><th>Feature / permission</th><th class="center">View</th><th class="center">Create</th><th class="center">Edit</th><th class="center">Approve / verify</th><th class="center">Export</th></tr></thead><tbody id="matrix"></tbody></table></div><p class="muted">Checkboxes are editable only when the selected acting admin is Owner or Head. The Owner role is protected from modification in this demo.</p></section>
+<section class="panel"><h3 style="margin-top:0">Staff accounts</h3><div class="tablewrap"><table><thead><tr><th>Name</th><th>Login</th><th>Role</th><th>Status</th></tr></thead><tbody id="staff"><tr><td>Primary Owner</td><td>owner@goldpay.local</td><td>Owner</td><td>Active</td></tr><tr><td>Operations Head</td><td>head@goldpay.local</td><td>Head</td><td>Active</td></tr><tr><td>Demo Manager</td><td>manager@goldpay.local</td><td>Manager</td><td>Active</td></tr></tbody></table></div></section>
+</main></div><script>
+const features=['Dashboard','Users & user profiles','API Deposit Requests','User Buying Records','Receipt Review Alerts','Payment Channels','USDT Deposits & TXID review','USDT Rate Settings','Notifications & Offers','Merchants & API','Reports & exports','Admin Roles & permissions','System settings'];
+const actions=['View','Create','Edit','Approve / verify','Export'];
+const defaults={
+'Owner':features.map(()=>[1,1,1,1,1]),
+'Head':features.map((f)=>[1,1,1,1,1]),
+'Manager':features.map((f,i)=>[1,[1,2,3,4,5,8,9].includes(i)?1:0,[1,2,3,4,5,8,9].includes(i)?1:0,[2,4,6].includes(i)?1:0,[10].includes(i)?1:0]),
+'Sub Admin':features.map((f,i)=>[1,[2,3,4].includes(i)?1:0,[2,3,4].includes(i)?1:0,[2,4].includes(i)?1:0,0]),
+'Partner':features.map((f,i)=>[ [2,3,9].includes(i)?1:0,0,0,0,0]),
+'Agent':features.map((f,i)=>[ [2,3,4,6].includes(i)?1:0,0,0,[4].includes(i)?1:0,0])
+};
+let perms=JSON.parse(JSON.stringify(defaults)),staff=[];
+function authorityChanged(){let a=document.getElementById('actor').value;document.getElementById('authority').textContent='Editing as '+a;renderMatrix()}
+function renderMatrix(){let actor=document.getElementById('actor').value,target=document.getElementById('target').value,can=['Owner','Head'].includes(actor)&&target!=='Owner';document.getElementById('matrix').innerHTML=features.map((f,i)=>`<tr><td class="role">${f}</td>${actions.map((ac,j)=>`<td class="center"><input class="perm ${can?'':'locked'}" type="checkbox" ${perms[target][i][j]?'checked':''} ${can?'':'disabled'} onchange="perms['${target}'][${i}][${j}]=this.checked?1:0"></td>`).join('')}</tr>`).join('')}
+function saveMatrix(){let actor=document.getElementById('actor').value,target=document.getElementById('target').value;if(!['Owner','Head'].includes(actor)){alert('Only Owner or Head can change role permissions.');return}if(target==='Owner'){alert('Owner permissions are protected.');return}alert('Demo permission matrix saved. Production must enforce and audit this on the backend.')}
+function addAdmin(){let actor=document.getElementById('actor').value;if(!['Owner','Head'].includes(actor)){alert('Only Owner or Head can create admin accounts and assign roles.');return}let n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim(),r=document.getElementById('role').value;if(!n||!e){alert('Enter name and email/login');return}let tr=document.createElement('tr');[n,e,r,'Invited · Demo'].forEach(v=>{let td=document.createElement('td');td.textContent=v;tr.appendChild(td)});document.getElementById('staff').appendChild(tr);document.getElementById('msg').textContent='Demo staff row added. Connect secure invitation and MFA workflow for production.';document.getElementById('name').value='';document.getElementById('email').value=''}
+document.getElementById('target').value='Manager';renderMatrix();
+</script></body></html>

@@ -1,0 +1,12 @@
+GoldPay Admin Demo — Visual Theme Update
+
+The admin pages have been restyled using the supplied reference image:
+- Deep navy sidebar and top header
+- Bright blue active navigation and primary actions
+- Light cool-gray workspace background
+- White content panels and data cards
+- Compact, squared navigation, buttons, and table styling
+
+This is a visual/frontend demo update. Existing demo data and interaction limitations remain unchanged; this does not connect payment providers or make the demo production-ready.
+
+To preview: extract the ZIP and open index.html. Navigate to the linked pages from the sidebar.

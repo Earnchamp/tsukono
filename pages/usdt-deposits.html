@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><script src="../auth.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GoldPay Admin · USDT Deposits</title>
+<style>
+:root{--navy:#17243b;--gold:#e8b923;--bg:#f4f6fa;--muted:#788397;--line:#e7eaf0;--green:#16804a;--red:#b4232c;--amber:#946200}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px Inter,system-ui,Arial;color:var(--navy)}header{background:var(--navy);color:#fff;padding:17px 24px;display:flex;justify-content:space-between}.brand{font-weight:850}.brand b{color:var(--gold)}
+.layout{display:flex;min-height:calc(100vh - 56px)}aside{width:225px;background:#fff;border-right:1px solid var(--line);padding:18px 12px}aside a{display:block;padding:11px;border-radius:9px;text-decoration:none;color:#5d687c;margin:3px 0}aside a.active{background:#fff6d9;color:#654c00;font-weight:800}
+main{padding:25px;flex:1;min-width:0}h1{margin:0 0 5px;font-size:24px}.sub{color:var(--muted);margin:0 0 18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:17px}.stat,.panel,.notice{background:white;border:1px solid var(--line);border-radius:14px}.stat{padding:15px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:23px;margin-top:6px}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:13px}.toolbar input,.toolbar select{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:white}.toolbar input{flex:1;min-width:220px}
+button{border:0;border-radius:9px;padding:9px 12px;background:var(--gold);font-weight:750;cursor:pointer;color:#302600}.secondary{background:#edf0f5;color:#344158}
+.tablewrap{overflow:auto}table{width:100%;min-width:1150px;border-collapse:collapse}th,td{padding:13px;text-align:left;border-bottom:1px solid var(--line);font-size:12px;vertical-align:top}th{background:#fafbfd;color:#657187;text-transform:uppercase;font-size:10px;white-space:nowrap}
+.pill{display:inline-block;border-radius:20px;padding:5px 8px;font-size:10px;font-weight:800}.pending{background:#fff2d2;color:#946200}.done{background:#e5f6ed;color:var(--green)}.danger{background:#fdebec;color:var(--red)}.muted{color:var(--muted);font-size:11px;margin-top:4px}
+.notice{padding:14px;margin-bottom:15px;font-size:12px;line-height:1.55}.notice b{color:#8b5d00}.empty{text-align:center;padding:30px;color:var(--muted)}
+@media(max-width:850px){aside{display:none}.stats{grid-template-columns:repeat(2,1fr)}main{padding:17px 12px}}
+</style><style>
+/* GoldPay admin visual theme — inspired by the supplied Quack Pay reference */
+:root{--navy:#111a36;--gold:#1684d8;--bg:#eef1f6;--muted:#78849a;--line:#dfe4ed;--green:#16834d;--red:#d9535b;--amber:#a87908;--blue:#087bd1}
+html{background:var(--bg)} body{background:var(--bg)!important;color:#26334d!important;font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif!important}
+header,.top{background:#111a36!important;color:#f5f7fc!important;border:0!important;box-shadow:0 2px 10px rgba(9,20,48,.12)}
+.top{height:70px}.top strong{color:#fff}.top .muted{color:#b9c5dc!important}
+.side,aside{background:#111a36!important;color:#dce5f5!important;border:0!important;box-shadow:2px 0 12px rgba(9,20,48,.08)}
+.logo{color:#fff!important}.logo span,.brand b{color:#62b8ff!important}
+.navbtn,aside a{color:#c3cde0!important;border-radius:3px!important;background:transparent!important;transition:background .15s,color .15s}
+.navbtn.active,.navbtn:hover,aside a.active,aside a:hover{background:#087bd1!important;color:#fff!important}
+.navbtn{border-left:3px solid transparent!important}.navbtn.active{border-left-color:#71c5ff!important}
+.content,main{background:var(--bg)!important}.heading h1,h1{color:#25334d!important}
+.panel,.metric,.stat{background:#fff!important;border:1px solid #e0e5ed!important;border-radius:5px!important;box-shadow:0 2px 8px rgba(22,40,75,.035)}
+.panel h2{color:#273650}.metric b,.stat strong{color:#1e2d49}
+th{background:#f3f5f9!important;color:#748199!important}td,th{border-color:#e5e9f0!important}
+.btn,button:not(.navbtn):not(.secondary):not(.ghost){background:#087bd1!important;color:#fff!important;border-radius:3px!important}
+.btn.ghost,.secondary{background:#f7f9fc!important;color:#34445f!important;border:1px solid #dce3ed!important;border-radius:3px!important}
+.status,.pill{border-radius:3px!important}
+.toolbar input,.toolbar select,input,select{border-color:#d8dfeb!important;border-radius:3px!important}
+.notice{border-radius:3px!important}
+a{color:#087bd1}
+@media(max-width:900px){.side{box-shadow:none}aside{background:#111a36!important}}
+
+</style></head><body>
+<header><div class="brand">GOLD<b>PAY</b> <small>ADMIN</small></div><div>BSC USDT monitoring</div></header>
+<div class="layout"><aside><a href="../index.html">Dashboard</a><a href="deposit-requests.html">API Deposit Requests</a><a href="buying-records.html">User Buying Records</a><a href="receipt-review.html">Receipt Review Alerts</a><a class="active" href="usdt-deposits.html">USDT Deposits</a><a href="channels.html">Payment Channels</a></aside><main>
+<h1>USDT Deposits · BNB Smart Chain</h1><p class="sub">Monitor user-assigned deposit addresses, on-chain transactions and wallet-credit synchronization.</p>
+<div class="notice"><b>Integration safety:</b> This is a UI demo, not a live wallet or blockchain connection. In production, issue deposit addresses through a custody/wallet provider or hardened key-management system. Never generate/store private keys in the browser or ordinary application database. Credit only after verifying the configured USDT token contract, chain, recipient, amount, transaction success and required confirmations.</div>
+<section class="stats"><div class="stat"><small>Assigned addresses</small><strong>1,284</strong></div><div class="stat"><small>Deposits detected today</small><strong>36</strong></div><div class="stat"><small>Awaiting confirmations</small><strong>4</strong></div><div class="stat"><small>Wallet sync pending</small><strong>2</strong></div></section>
+<div class="toolbar"><input id="q" placeholder="Search user, address or TXID…" oninput="render()"><select id="status" onchange="render()"><option value="">All statuses</option><option>Confirming</option><option>Verified</option><option>Wallet synced</option><option>Review required</option></select><button class="secondary" onclick="alert('Demo: connect a BSC RPC/indexer service for live chain sync.')">↻ Sync chain</button></div>
+<section class="panel"><div class="tablewrap"><table><thead><tr><th>Detected at</th><th>GoldPay user</th><th>Assigned deposit address</th><th>Asset / Network</th><th>Amount</th><th>TXID</th><th>Confirmations</th><th>Verification</th><th>Wallet sync</th><th>Action</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<p class="muted">Address assignment is one address per user (or a provider-managed address mapping). TXID checks must be idempotent; never credit twice for the same chain, token contract and transaction/log index.</p>
+</main></div>
+<script>
+const data=[
+{at:'11:47:20',user:'10037694 · Aarav S.',address:'0x71C7...A2e91B',asset:'USDT · BSC',amount:'125.00',txid:'0x8f2a...91c2',conf:18,status:'Verified',sync:'Wallet synced'},
+{at:'11:43:08',user:'10038110 · Rahul K.',address:'0xA19d...e4102C',asset:'USDT · BSC',amount:'50.00',txid:'0x4b1c...b390',conf:3,status:'Confirming',sync:'Pending'},
+{at:'11:31:42',user:'10039201 · Priya M.',address:'0x0d52...c8A710',asset:'USDT · BSC',amount:'200.00',txid:'0x991e...0a71',conf:24,status:'Verified',sync:'Pending'},
+{at:'10:58:11',user:'10040221 · Neha R.',address:'0xC08a...9D4410',asset:'USDT · BSC',amount:'75.00',txid:'0xa1f9...22bc',conf:0,status:'Review required',sync:'Not eligible'}
+];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function badge(v){let c=v==='Verified'||v==='Wallet synced'?'done':v==='Confirming'||v==='Pending'?'pending':'danger';return `<span class="pill ${c}">${v}</span>`}
+function render(){let q=document.getElementById('q').value.toLowerCase(),s=document.getElementById('status').value;let a=data.filter(x=>(!s||x.status===s||x.sync===s)&&Object.values(x).join(' ').toLowerCase().includes(q));document.getElementById('rows').innerHTML=a.length?a.map(x=>`<tr><td>${x.at}</td><td><b>${esc(x.user)}</b></td><td>${esc(x.address)}<div class="muted">Masked demo address</div></td><td>${x.asset}</td><td><b>${x.amount}</b></td><td>${esc(x.txid)}</td><td>${x.conf}</td><td>${badge(x.status)}</td><td>${badge(x.sync)}</td><td><button onclick="alert('Demo TXID review. Production must query a trusted BSC node/indexer and verify token contract, Transfer log, recipient, amount and confirmations.')">Verify TXID</button></td></tr>`).join(''):'<tr><td colspan="10" class="empty">No USDT deposits found.</td></tr>'}
+render();
+</script></body></html>
